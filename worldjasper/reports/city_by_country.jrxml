@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final utlizzo versione della libreria JasperReports6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="city_by_country" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9ec796f9-c3e2-48cd-90ff-1396e1e46cea">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="country" class="java.lang.String"/>
+	<parameter name="countryCode" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select * from city where city.CountryCode = $P{countryCode}]]>
+	</queryString>
+	<field name="CountryCode" class="java.lang.String"/>
+	<field name="Name" class="java.lang.String"/>
+	<field name="District" class="java.lang.String"/>
+	<field name="Population" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="75" splitType="Stretch">
+			<staticText>
+				<reportElement x="227" y="0" width="100" height="30" uuid="97a486c4-904a-4282-a4de-dffa28a3203b"/>
+				<text><![CDATA[Cities By Country  :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="230" y="40" width="100" height="30" uuid="e07ba395-68c6-4919-abb7-67c1500e2384"/>
+				<textFieldExpression><![CDATA[$P{country}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="30" uuid="292ded4d-7388-4925-8aaa-f081ce93148e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="03027c31-98d8-4701-8516-f9e1967d6ab4"/>
+				</reportElement>
+				<text><![CDATA[Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="160" y="0" width="100" height="30" uuid="e5b850eb-dad4-47d2-9016-d7e3f8cd1dca">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="98e937ae-09c2-46d3-ae69-686266148451"/>
+				</reportElement>
+				<text><![CDATA[CountryCode]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="290" y="0" width="100" height="30" uuid="3bf1ccaa-76e5-4927-b883-dfddc1714f1b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6d243eed-4a00-43a0-a78a-b35e89e935da"/>
+				</reportElement>
+				<text><![CDATA[District]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="440" y="0" width="100" height="30" uuid="cfb6403f-506d-48a5-9433-abc73b9ee642">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="40ac5d2b-d7b0-4d4b-9ee6-4c2fb6bfe29b"/>
+				</reportElement>
+				<text><![CDATA[Population]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="33" width="100" height="30" uuid="a7433646-3a79-4063-b2cd-fe391bd83ae7">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="03027c31-98d8-4701-8516-f9e1967d6ab4"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{Name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="160" y="33" width="100" height="30" uuid="10bd7bf5-85ad-48e4-88f9-1552037361ed">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="98e937ae-09c2-46d3-ae69-686266148451"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{CountryCode}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="290" y="30" width="100" height="30" uuid="acd35236-a0ff-41ac-8e03-0eeaea27f31c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6d243eed-4a00-43a0-a78a-b35e89e935da"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{District}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.###;(#,##0.###-)">
+				<reportElement x="460" y="30" width="100" height="30" uuid="f0d3d847-f88f-44a2-8b3e-3478edfdc1d7">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="40ac5d2b-d7b0-4d4b-9ee6-4c2fb6bfe29b"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{Population}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

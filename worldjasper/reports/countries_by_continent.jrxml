@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final utlizzo versione della libreria JasperReports6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="countries_by_continent" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b34fc28d-208c-48c5-9c17-86d4e5ed4562">
+	<parameter name="cont" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select * from country where Continent = $P{cont}]]>
+	</queryString>
+	<field name="Name" class="java.lang.String"/>
+	<field name="Population" class="java.lang.Integer"/>
+	<field name="Code" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="100" splitType="Stretch">
+			<staticText>
+				<reportElement x="230" y="0" width="91" height="40" uuid="47537ce3-72c2-4696-b292-fec15e77dec4"/>
+				<text><![CDATA[Countries By Continent  :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="227" y="50" width="100" height="30" uuid="d20ff096-5bc6-440d-bb17-f2a31a95d11f"/>
+				<textFieldExpression><![CDATA[$P{cont}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="30" uuid="5a07550a-3530-408b-ac7c-dcdb8301c570">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c901252d-8fc0-4b89-9be0-b6872a7ba3ec"/>
+				</reportElement>
+				<text><![CDATA[Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="220" y="0" width="100" height="30" uuid="dc7066b5-5a7e-43a7-bc32-051c116a0a7d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3b408b83-89c0-45a7-9c46-c9b68c9780d4"/>
+				</reportElement>
+				<text><![CDATA[Code]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="430" y="0" width="100" height="30" uuid="ecf3d0e2-3d42-498e-9b71-fe79a96fe7ac">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c4e34a37-8f4d-442b-83e0-125cd177b2e6"/>
+				</reportElement>
+				<text><![CDATA[Population]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="60" width="100" height="30" uuid="20923423-d7a1-4679-8ff3-9501405f5324">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c901252d-8fc0-4b89-9be0-b6872a7ba3ec"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{Name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="220" y="60" width="100" height="30" uuid="712a8cd7-91ff-4d33-bc18-e15cdf0d743e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3b408b83-89c0-45a7-9c46-c9b68c9780d4"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{Code}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.###;(#,##0.###-)">
+				<reportElement x="450" y="60" width="100" height="30" uuid="ba932374-c977-464c-8ba5-8cbe5c03833d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c4e34a37-8f4d-442b-83e0-125cd177b2e6"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{Population}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
